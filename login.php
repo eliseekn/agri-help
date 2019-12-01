@@ -1,30 +1,26 @@
 <?php
-require_once('api_sms.php');
-
-if (isset($_POST['name']) && isset($_POST['phone']) && isset($_POST['city'])) {
-    if (!empty($_POST['name']) && !empty($_POST['phone']) && !empty($_POST['city'])) {
+if (isset($_POST['name']) && isset($_POST['phone'])) {
+    if (!empty($_POST['name']) && !empty($_POST['phone'])) {
         $name = $_POST['name'];
         $phone = $_POST['phone'];
-        $city = $_POST['city'];
 
         $db_connection = mysqli_connect("localhost", "root", "eliseekn", "agri-help");
-
-        $query = mysqli_query($db_connection, "INSERT INTO users (id, name, phone, city)
-            VALUES (NULL, '$name', '$phone', '$city')");
+        $query = mysqli_query($db_connection, "SELECT * FROM users WHERE name='$name' AND phone='$phone'");
+        $row = mysqli_fetch_assoc($query);
 
         // if(!$query) {
         //     die(mysqli_error($db_connection));
         // }
 
-        session_start();
-        $_SESSION['connected'] = 'true';
-        $_SESSION['name'] = $name;
-        $_SESSION['city'] = $city;
-        $_SESSION['phone'] = $phone;
+        if (!empty($row['name'])) {
+            session_start();
+            $_SESSION['connected'] = 'true';
+            $_SESSION['name'] = $row['name'];
+            $_SESSION['city'] = $row['city'];
+            $_SESSION['phone'] = $row['phone'];
 
-        SMS::send($phone, "Bienvenue sur l'application web de Agri-Help. ");
-
-        header("Location:index.php");
+            header("Location:index.php");
+        }
     }
 }
 ?>
@@ -69,31 +65,25 @@ if (isset($_POST['name']) && isset($_POST['phone']) && isset($_POST['city'])) {
 
         <div class="card mt-5 p-4 mb-5 container">
             <h3 class="card-title mb-5">
-                <li class="fas fa-user"></li> Créer un compte
+                <li class="fas fa-user"></li> Connexion à votre compte
             </h3>
 
             <form method="post">
                 <div class="form-group">
-                    <label>Nom et prénoms</label>
-                    <input type="text" class="form-control" name="name" placeholder="Entrez votre nom et prénoms">
+                    <label>Nom et pr&eacute;noms</label>
+                    <input type="text" class="form-control" name="name" placeholder="Entrez votre nom et pr&eacute;noms">
                 </div>
                 <div class="form-group">
-                    <label>Numéro de téléphone</label>
-                    <input type="text" class="form-control" name="phone" placeholder="Entrez votre numéro de téléphone">
-                </div>
-                <div class="form-group">
-                    <label>Ville</label>
-                    <select name="city" class="form-control">
-                        <option selected>Choisissez votre localité</option>
-                        <option value="Abidjan">Abidjan</option>
-                        <option value="Bouake">Bouaké</option>
-                        <option value="Daloa">Daloa</option>
-                        <option value="Yamoussokro">Yamoussokro</option>
-                    </select>
+                    <label>Num&eacute;ro de t&eacute;l&eacute;phone</label>
+                    <input type="text" class="form-control" name="phone" placeholder="Entrez votre num&eacute;ro de t&eacute;l&eacute;phone">
                 </div>
                 <button type="submit" class="btn btn-dark">
-                    <li class="fas fa-save"></li> S'inscrire
+                    <li class="fas fa-sign-out-alt"></li> Se connecter
                 </button>
+
+                <a href="register.php" class="btn btn-dark ml-3">
+                    <li class="fas fa-save"></li> S'inscrire
+                </a>
             </form>
         </div>
     </body>
