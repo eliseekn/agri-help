@@ -24,13 +24,18 @@ if (!isset($_SESSION['connected'])) {
 
         <link rel="stylesheet" href="vendor/bootstrap-4.3.1-dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="vendor/fontawesome-5.11.2/css/all.css">
-        <!-- <link rel="stylesheet" href="assets/css/style.css"> -->
 
         <style>
             body {
                 background: url('assets/img/header-bg.png') no-repeat;
                 background-position: center;
                 background-size: cover;
+            }
+
+            @media (max-width: 768px) {
+                .jumbotron {
+                    display: none;
+                }
             }
         </style>
     </head>
@@ -92,9 +97,6 @@ if (!isset($_SESSION['connected'])) {
                         <select name="culture" class="form-control">
                             <option selected>Choisissez une culture</option>
                             <option value="Tomate">Tomate</option>
-                            <option value="Aubergine">Aubergine</option>
-                            <option value="Manioc">Manioc</option>
-                            <option value="Choux">Choux</option>
                             <option value="Piment">Piment</option>
                         </select>
                         <button type="submit" class="btn btn-dark mt-3">
@@ -116,7 +118,7 @@ if (!isset($_SESSION['connected'])) {
             <div class="card mt-5 border-dark">
                 <div class="card-header bg-dark text-white d-flex align-items-center">
                     <li class="fas fa-compass fa-2x"></li>
-                    <span class="ml-3">Pratiques culturales &agrave; observer</span>
+                    <span class="ml-3">Conseils de cultures &agrave; observer</span>
                 </div>
                 <div class="card-body">
                     <p class="card-text">
@@ -128,11 +130,11 @@ if (!isset($_SESSION['connected'])) {
             <div class="card mt-5 border-dark">
                 <div class="card-header bg-dark text-white d-flex align-items-center">
                     <li class="fas fa-shield-alt fa-2x"></li>
-                    <span class="ml-3">Techniques de protection de la culture</span>
+                    <span class="ml-3">Protection de la culture</span>
                 </div>
                 <div class="card-body">
                     <p class="card-text">
-                        <?php echo $culture['protectoin']; ?>
+                        <?php echo $culture['protection']; ?>
                     </p>
                 </div>
             </div>
@@ -141,12 +143,11 @@ if (!isset($_SESSION['connected'])) {
                 }
             }
             ?>
-       </div>
+        </div>
 
-        <!-- <script type="text/javascript" src="vendor/jquery-3.4.1.min.js"></script>
+        <script type="text/javascript" src="vendor/jquery-3.4.1.min.js"></script>
         <script type="text/javascript" src="vendor/popper.min.js"></script>
         <script type="text/javascript" src="vendor/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="assets/js/script.js"></script> -->
     </body>
 </html>
 

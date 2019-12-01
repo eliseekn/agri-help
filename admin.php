@@ -39,6 +39,12 @@ if (isset($_POST['message'])) {
                 background-position: center;
                 background-size: cover;
             }
+
+            @media (max-width: 768px) {
+                .jumbotron {
+                    display: none;
+                }
+            }
         </style>
     </head>
     <body>
@@ -69,5 +75,9 @@ if (isset($_POST['message'])) {
                 </button>
             </form>
         </div>
+
+        <script type="text/javascript" src="vendor/jquery-3.4.1.min.js"></script>
+        <script type="text/javascript" src="vendor/popper.min.js"></script>
+        <script type="text/javascript" src="vendor/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
     </body>
 </html>

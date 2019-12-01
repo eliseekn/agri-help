@@ -44,13 +44,24 @@ if (isset($_POST['name']) && isset($_POST['phone']) && isset($_POST['city'])) {
 
         <link rel="stylesheet" href="vendor/bootstrap-4.3.1-dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="vendor/fontawesome-5.11.2/css/all.css">
-        <!-- <link rel="stylesheet" href="assets/css/style.css"> -->
 
         <style>
             body {
                 background: url('assets/img/header-bg.png') no-repeat;
                 background-position: center;
                 background-size: cover;
+            }
+
+            @media (max-width: 768px) {
+                .jumbotron {
+                    display: none;
+                }
+            }
+
+            @media (max-width: 375px) {
+                .card-title {
+                    font-size: 1.5rem;
+                }
             }
         </style>
     </head>
@@ -96,5 +107,9 @@ if (isset($_POST['name']) && isset($_POST['phone']) && isset($_POST['city'])) {
                 </button>
             </form>
         </div>
+
+        <script type="text/javascript" src="vendor/jquery-3.4.1.min.js"></script>
+        <script type="text/javascript" src="vendor/popper.min.js"></script>
+        <script type="text/javascript" src="vendor/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
     </body>
 </html>
