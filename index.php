@@ -116,7 +116,7 @@ if (!isset($_SESSION['connected'])) {
             <div class="card mt-5 border-dark">
                 <div class="card-header bg-dark text-white d-flex align-items-center">
                     <li class="fas fa-compass fa-2x"></li>
-                    <span class="ml-3">Pratiques culturales à observer</span>
+                    <span class="ml-3">Pratiques culturales &agrave; observer</span>
                 </div>
                 <div class="card-body">
                     <p class="card-text">
