@@ -22,7 +22,7 @@ if (isset($_POST['name']) && isset($_POST['phone']) && isset($_POST['city'])) {
         $_SESSION['city'] = $city;
         $_SESSION['phone'] = $phone;
 
-        SMS::send($phone, "Bienvenue sur l'application web de Agri-Help. ");
+        SMS::send($phone, "Grande saison sèche - Arroser tous les jours le matin avec 3 arrosoirs de 20 L par m2 ou 40 bouteilles de 1,5 L d'eau par m2");
 
         header("Location:index.php");
     }
